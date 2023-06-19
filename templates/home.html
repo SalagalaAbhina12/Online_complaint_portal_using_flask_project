@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Complaint Portal</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Online Complaint Portal</h1>
+    <a href="/complaints">View Complaints</a>
+    <hr>
+    <h2>Submit a Complaint</h2>
+    <form method="POST" action="/complaints">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

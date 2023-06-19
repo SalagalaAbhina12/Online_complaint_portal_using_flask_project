@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaints</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Complaints</h1>
+    <a href="/">Home</a>
+    <hr>
+    <h2>Submit a Complaint</h2>
+    <form method="POST" action="/complaints">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+    <h2>All Complaints</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        {% for complaint in complaints %}
+        <tr>
+            <td>{{ complaint[0] }}</td>
+            <td>{{ complaint[1] }}</td>
+            <td>{{ complaint[2] }}</td>
+            <td>{{ complaint[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
